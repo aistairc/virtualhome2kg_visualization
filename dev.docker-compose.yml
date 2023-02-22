@@ -9,6 +9,7 @@ services:
     volumes:
       - ./.graphdb-data:/opt/graphdb/home    
       - ./RDF:/opt/graphdb/home/graphdb-import
+      - old:/opt/graphdb/home/graphdb-import/old
       - ./graphdb-repo-config.ttl:/opt/graphdb/graphdb-repo-config.ttl
       - ./entrypoint.sh:/opt/graphdb/entrypoint.sh
     environment:  
@@ -30,3 +31,5 @@ services:
       - 8080:80
     volumes:
       - "./nginx/dev.nginx.conf:/etc/nginx/nginx.conf"
+volumes:
+  old:
