@@ -161,12 +161,6 @@ const Home: NextPage = () => {
     },
     [activityList]
   );
-  const videoFile = useMemo(() => {
-    if (!activity) {
-      return null;
-    }
-    return activity.label.value.replaceAll(" ", "_") + "1.mp4";
-  }, [activity]);
 
   const [currentTime, setCurrentTime] = useState(0);
   useEffect(() => {
@@ -268,7 +262,7 @@ const Home: NextPage = () => {
         marginTop="16px"
         height="300px"
       >
-        {videoFile && (
+        {videoUrl && (
           <>
             <video
               controls
@@ -280,7 +274,7 @@ const Home: NextPage = () => {
               onPause={onPause}
               onLoadedData={onLoadVideo}
               onSeeking={seekingUpdate}
-              src={videoUrl ?? ""}
+              src={videoUrl}
             />
             <Box flex="2">
               {events ? (
@@ -390,7 +384,7 @@ const Home: NextPage = () => {
           </>
         )}
       </Box>
-      {videoFile && (
+      {videoUrl && (
         <Box>
           <Button onClick={onClickTable}>オブジェクト一覧表示</Button>
           <Button onClick={onClickKGraph}>ナレッジグラフ表示</Button>

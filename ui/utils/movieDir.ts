@@ -11,10 +11,11 @@ export const makeMoviePath = async (
 ): Promise<string | null> => {
   const results = await fetchActivityTypes(activity);
   console.log(activity);
-  const sceneFilename = `${scene.replace(PREFIXES.ex, "")}/${label.replaceAll(
+  const sceneFilename = `${scene.replace(PREFIXES.ex, "")}/${label.replace(
     " ",
-    "_"
-  )}0.mp4`;
+    "%20"
+  )}_0.mp4`;
+  console.log(sceneFilename);
   for (const result of results) {
     const url = `${MovieStoreURL}${result.subClassOf.value.replace(
       PREFIXES.ho,
