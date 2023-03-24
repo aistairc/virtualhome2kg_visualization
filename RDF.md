@@ -8,46 +8,48 @@
 </table>
 
 ## 目次
+
 1. [提供データセット](#提供データセット)
 2. [データセットの構成](#データセットの構成)
 3. [ナレッジグラフの説明](#ナレッジグラフの説明)
 4. [ナレッジグラフの使用方法](#ナレッジグラフの使用方法)
 5. [同様のナレッジグラフの作成方法](#同様のナレッジグラフの作成方法)
 
-
 ## 提供データセット
+
 - 仮想空間内で日常生活行動をシミュレーションした動画データ
 - 動画の内容をナレッジグラフ化したデータ（"誰"がどんな"物"にどんな"行動"をしてその結果"物の状態"や"位置関係"がどうなったか）
 - 上記をオープンデータとして公開
 
 ## データセットの構成
+
 - [動画](./Movie/)
-  - mp4形式
-  - 204種類の行動シナリオ(更新: 2023/02/21)
-  - 1種類につきキャラクター後方視点（ファイル名末尾0），室内カメラ切替視点（ファイル名末尾1），部屋の四隅に設置した固定カメラ視点（ファイル末尾2〜5）があります．また，1つの行動シナリオにつき，異なる部屋の間取り（scene）で最小1〜最大7パターンのデータを生成しています．合計1,224個の動画 (更新: 2023/02/21)
+  - mp4 形式
+  - 204 種類の行動シナリオ(更新: 2023/02/21)
+  - 1 種類につきキャラクター後方視点（ファイル名末尾 0），室内カメラ切替視点（ファイル名末尾 1），部屋の四隅に設置した固定カメラ視点（ファイル末尾 2〜5）があります．また，1 つの行動シナリオにつき，異なる部屋の間取り（scene）で最小 1〜最大 7 パターンのデータを生成しています．合計 1,224 個の動画 (更新: 2023/02/21)
   - キャラクター動作がゆっくりな動画は高齢者の動きを再現しています
 - [ナレッジグラフ](./RDF/)
-  - RDF形式
-  - 動画に対応する204個のナレッジグラフ(更新: 2023/02/21)
+  - RDF 形式
+  - 動画に対応する 204 個のナレッジグラフ(更新: 2023/02/21)
   - [スキーマ](./RDF/vh2kg_schema.ttl)と[場所補足情報](./RDF/add_places.ttl)を含む
   - スキーマは[後述](#ナレッジグラフの説明)
-  - SPARQLエンドポイントやクエリ例は[こちら](https://github.com/KnowledgeGraphJapan/KGRC-RDF/tree/kgrc4si#%E3%83%8A%E3%83%AC%E3%83%83%E3%82%B8%E3%82%B0%E3%83%A9%E3%83%95%E3%81%AE%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)
+  - SPARQL エンドポイントやクエリ例は[こちら](https://github.com/KnowledgeGraphJapan/KGRC-RDF/tree/kgrc4si#%E3%83%8A%E3%83%AC%E3%83%83%E3%82%B8%E3%82%B0%E3%83%A9%E3%83%95%E3%81%AE%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)
 - [台本データ](./Program/)
-  - txt形式
+  - txt 形式
   - 動画とナレッジグラフを生成するために[VirtualHome2KG](https://github.com/aistairc/VirtualHome2KG/blob/main/README_ja.md)に与えたデータ
   - 行動のタイトルと簡単な文章説明を含む
-
 
 ## ナレッジグラフの説明
 
 ### オントロジーの仕様書
+
 全クラス・インスタンス・プロパティの説明は下記の仕様書を御覧ください。  
 [https://aistairc.github.io/VirtualHome2KG/vh2kg_ontology.html](https://aistairc.github.io/VirtualHome2KG/vh2kg_ontology.html)  
 以下で代表的なクラス・プロパティを説明します。
 
 ### スキーマ図
-<img src="https://github.com/aistairc/VirtualHome2KG/raw/main/ontology/image/class_diagram.png" alt="schema">
 
+<img src="https://github.com/aistairc/VirtualHome2KG/raw/main/ontology/image/class_diagram.png" alt="schema">
 
 <details>
 <summary>接頭辞</summary>
@@ -288,23 +290,26 @@
 </details>
 
 ### 具体的なナレッジグラフの説明
+
 <img src="./asset/Slide3.png" alt="kgの例 (listen to music)">
 
 ## ナレッジグラフの使用方法
-ナレッジグラフはRDF形式のデータで提供しているため，トリプルストアに格納することで，クエリ言語SPARQLを使用して様々な検索が可能です．また，[SPARQLエンドポイント](#sparqlエンドポイント)を提供していますので，そちらから直接ご利用いただけます．
+
+ナレッジグラフは RDF 形式のデータで提供しているため，トリプルストアに格納することで，クエリ言語 SPARQL を使用して様々な検索が可能です．また，[SPARQL エンドポイント](#sparqlエンドポイント)を提供していますので，そちらから直接ご利用いただけます．
 
 参考資料:
-- 【トリプルストアについての参考資料】[トリプルストアの導入](https://www.slideshare.net/KnowledgeGraph/lod-250078657)  （12ページから）
-- 【SPARQLについての参考資料】[Wikidataを例としたSPARQLクエリの例](https://www.slideshare.net/KnowledgeGraph/linked-open-data2020-sparqlsparql)（16ページから）
 
-  
-### SPARQLエンドポイント
-本データセットを格納したSPARQLエンドポイントを提供しています。  
+- 【トリプルストアについての参考資料】[トリプルストアの導入](https://www.slideshare.net/KnowledgeGraph/lod-250078657) （12 ページから）
+- 【SPARQL についての参考資料】[Wikidata を例とした SPARQL クエリの例](https://www.slideshare.net/KnowledgeGraph/linked-open-data2020-sparqlsparql)（16 ページから）
+
+### SPARQL エンドポイント
+
+本データセットを格納した SPARQL エンドポイントを提供しています。  
 [http://kgrc4si.ml:7200/sparql](http://kgrc4si.ml:7200/sparql)  
-リポジトリは「KGRC4SIv02」を選択してください。（2023/02/21時点）  
-トリプルストアとしてOntotext GraphDBを使用しています．基本的な使用方法は[こちらの動画](https://drive.google.com/file/d/19YKSsUalvVSGinYtCwi2R7zHIp3W0EBU/view)を御覧ください。
+リポジトリは「KGRC4SIv02」を選択してください。（2023/02/21 時点）  
+トリプルストアとして Ontotext GraphDB を使用しています．基本的な使用方法は[こちらの動画](https://drive.google.com/file/d/19YKSsUalvVSGinYtCwi2R7zHIp3W0EBU/view)を御覧ください。
 
-### SPARQLクエリ例
+### SPARQL クエリ例
 
 - [アクティビティの一覧を取得する](#アクティビティの一覧を取得する)
 - [「インターネットをブラウズする」というアクティビティ中のイベントとアクションを取得する](#インターネットをブラウズするというアクティビティ中のイベントとアクションを取得する)
@@ -312,8 +317,8 @@
 - [インタラクションしているオブジェクトのタイプ一覧](#インタラクションしているオブジェクトのタイプ一覧)
 - [オブジェクトの高さ情報を追加する](#オブジェクトの高さ情報を追加する)
 
-
 #### アクティビティの一覧を取得する
+
 ```sparql
 PREFIX ex: <http://example.org/virtualhome2kg/instance/>
 PREFIX : <http://example.org/virtualhome2kg/ontology/>
@@ -321,9 +326,11 @@ select DISTINCT * where {
     ?activity :virtualHome ex:scene1 .
 }
 ```
+
 [実行結果](http://kgrc4si.ml:7200/sparql?name=&infer=true&sameAs=false&query=PREFIX%20ex%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Finstance%2F%3E%0APREFIX%20%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Fontology%2F%3E%0Aselect%20DISTINCT%20*%20where%20%7B%0A%20%20%20%20%3Factivity%20%3AvirtualHome%20ex%3Ascene1%20.%0A%7D)
 
 #### 「インターネットをブラウズする」というアクティビティ中のイベントとアクションを取得する
+
 ```sparql
 PREFIX ex: <http://example.org/virtualhome2kg/instance/>
 PREFIX : <http://example.org/virtualhome2kg/ontology/>
@@ -332,38 +339,44 @@ select DISTINCT * where {
     ?event :action ?action .
 }
 ```
+
 [実行結果](http://kgrc4si.ml:7200/sparql?name=&infer=true&sameAs=false&query=PREFIX%20ex%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Finstance%2F%3E%0APREFIX%20%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Fontology%2F%3E%0Aselect%20DISTINCT%20*%20where%20%7B%0A%20%20%20%20ex%3Abrowse_internet_scene1%20%3AhasEvent%20%3Fevent%20.%0A%20%20%20%20%3Fevent%20%3Aaction%20%3Faction%20.%0A%7D)
 
 #### インタラクションしているオブジェクトのタイプ一覧
+
 ```sparql
 PREFIX : <http://example.org/virtualhome2kg/ontology/>
-select distinct ?objectType where { 
+select distinct ?objectType where {
     ?event (:mainObject|:targetObject) ?object .
     ?object a ?objectType .
 }
 ```
-[実行結果](http://kgrc4si.ml:7200/sparql?name=&infer=true&sameAs=false&query=PREFIX%20%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Fontology%2F%3E%0Aselect%20distinct%20%3FobjectType%20where%20%7B%20%0A%20%20%20%20%3Fevent%20(%3AmainObject%7C%3AtargetObject)%20%3Fobject%20.%0A%20%20%20%20%3Fobject%20a%20%3FobjectType%20.%0A%7D)
+
+[実行結果](<http://kgrc4si.ml:7200/sparql?name=&infer=true&sameAs=false&query=PREFIX%20%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Fontology%2F%3E%0Aselect%20distinct%20%3FobjectType%20where%20%7B%20%0A%20%20%20%20%3Fevent%20(%3AmainObject%7C%3AtargetObject)%20%3Fobject%20.%0A%20%20%20%20%3Fobject%20a%20%3FobjectType%20.%0A%7D>)
 
 #### よく掴まれているオブジェクト
+
 ```sparql
 PREFIX ho: <http://www.owl-ontologies.com/VirtualHome.owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX : <http://example.org/virtualhome2kg/ontology/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX ac: <http://example.org/virtualhome2kg/ontology/action/>
-select ?name (count(?object) AS ?count) where { 
+select ?name (count(?object) AS ?count) where {
 	?objectClass rdfs:subClassOf :Object .
     ?object a ?objectClass ;
-            rdfs:label ?label ; 
+            rdfs:label ?label ;
             dcterms:identifier ?id .
     ?event ho:object ?object .
     ?event :action ac:grab .
     BIND(concat(?label, ?id) AS ?name)
 } group by ?object ?name order by desc(count(?object))
 ```
-[実行結果](http://kgrc4si.ml:7200/sparql?name=&infer=true&sameAs=false&query=PREFIX%20ho%3A%20%3Chttp%3A%2F%2Fwww.owl-ontologies.com%2FVirtualHome.owl%23%3E%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX%20%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Fontology%2F%3E%0APREFIX%20dcterms%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0APREFIX%20ac%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Fontology%2Faction%2F%3E%0Aselect%20%3Fname%20(count(%3Fobject)%20AS%20%3Fcount)%20where%20%7B%20%0A%09%3FobjectClass%20rdfs%3AsubClassOf%20%3AObject%20.%0A%20%20%20%20%3Fobject%20a%20%3FobjectClass%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20rdfs%3Alabel%20%3Flabel%20%3B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20dcterms%3Aidentifier%20%3Fid%20.%0A%20%20%20%20%3Fevent%20ho%3Aobject%20%3Fobject%20.%0A%20%20%20%20%3Fevent%20%3Aaction%20ac%3Agrab%20.%0A%20%20%20%20BIND(concat(%3Flabel%2C%20%3Fid)%20AS%20%3Fname)%0A%7D%20group%20by%20%3Fobject%20%3Fname%20order%20by%20desc(count(%3Fobject)))
+
+[実行結果](<http://kgrc4si.ml:7200/sparql?name=&infer=true&sameAs=false&query=PREFIX%20ho%3A%20%3Chttp%3A%2F%2Fwww.owl-ontologies.com%2FVirtualHome.owl%23%3E%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX%20%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Fontology%2F%3E%0APREFIX%20dcterms%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0APREFIX%20ac%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Fontology%2Faction%2F%3E%0Aselect%20%3Fname%20(count(%3Fobject)%20AS%20%3Fcount)%20where%20%7B%20%0A%09%3FobjectClass%20rdfs%3AsubClassOf%20%3AObject%20.%0A%20%20%20%20%3Fobject%20a%20%3FobjectClass%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20rdfs%3Alabel%20%3Flabel%20%3B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20dcterms%3Aidentifier%20%3Fid%20.%0A%20%20%20%20%3Fevent%20ho%3Aobject%20%3Fobject%20.%0A%20%20%20%20%3Fevent%20%3Aaction%20ac%3Agrab%20.%0A%20%20%20%20BIND(concat(%3Flabel%2C%20%3Fid)%20AS%20%3Fname)%0A%7D%20group%20by%20%3Fobject%20%3Fname%20order%20by%20desc(count(%3Fobject))>)
 
 #### オブジェクトの高さ情報を追加する
+
 ```sparql
 PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -382,19 +395,26 @@ CONSTRUCT {
     BIND(URI(CONCAT(STR(ex:),"height_", ?object_name)) AS ?height_node)
 }
 ```
-[実行結果](http://kgrc4si.ml:7200/sparql?name=&infer=false&sameAs=false&query=PREFIX%20x3do%3A%20%3Chttps%3A%2F%2Fwww.web3d.org%2Fspecifications%2FX3dOntology4.0%23%3E%0APREFIX%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX%20%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Fontology%2F%3E%0APREFIX%20ex%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Finstance%2F%3E%0ACONSTRUCT%20%7B%0A%20%20%20%20%3Fobject%20%3Aheight%20%3Fheight_node%20.%0A%20%20%20%20%3Fheight_node%20rdf%3Avalue%20%3Fsize_y1%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%3Aunit%20%3Ameter%20.%0A%7D%20WHERE%20%7B%0A%09%3Fstate1%20%3AisStateOf%20%3Fobject%20%3B%20%3Abbox%20%3Fshape1%20.%0A%09%3Fshape1%20x3do%3AbboxSize%20%3Fsize1%20.%0A%09%3Fsize1%20rdf%3Arest%20%3Fsize_y%20.%0A%20%20%20%20%3Fsize_y%20rdf%3Afirst%20%3Fsize_y1%20.%0A%20%20%20%20BIND(REPLACE(STR(%3Fobject)%2C%20STR(ex%3A)%20%2C%22%22)%20AS%20%3Fobject_name)%0A%20%20%20%20BIND(URI(CONCAT(STR(ex%3A)%2C%22height_%22%2C%20%3Fobject_name))%20AS%20%3Fheight_node)%0A%7D)
+
+[実行結果](<http://kgrc4si.ml:7200/sparql?name=&infer=false&sameAs=false&query=PREFIX%20x3do%3A%20%3Chttps%3A%2F%2Fwww.web3d.org%2Fspecifications%2FX3dOntology4.0%23%3E%0APREFIX%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX%20%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Fontology%2F%3E%0APREFIX%20ex%3A%20%3Chttp%3A%2F%2Fexample.org%2Fvirtualhome2kg%2Finstance%2F%3E%0ACONSTRUCT%20%7B%0A%20%20%20%20%3Fobject%20%3Aheight%20%3Fheight_node%20.%0A%20%20%20%20%3Fheight_node%20rdf%3Avalue%20%3Fsize_y1%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%3Aunit%20%3Ameter%20.%0A%7D%20WHERE%20%7B%0A%09%3Fstate1%20%3AisStateOf%20%3Fobject%20%3B%20%3Abbox%20%3Fshape1%20.%0A%09%3Fshape1%20x3do%3AbboxSize%20%3Fsize1%20.%0A%09%3Fsize1%20rdf%3Arest%20%3Fsize_y%20.%0A%20%20%20%20%3Fsize_y%20rdf%3Afirst%20%3Fsize_y1%20.%0A%20%20%20%20BIND(REPLACE(STR(%3Fobject)%2C%20STR(ex%3A)%20%2C%22%22)%20AS%20%3Fobject_name)%0A%20%20%20%20BIND(URI(CONCAT(STR(ex%3A)%2C%22height_%22%2C%20%3Fobject_name))%20AS%20%3Fheight_node)%0A%7D>)
 
 ## 同様のナレッジグラフの作成方法
+
 本データセットは我々の提案システム「[VirtualHome2KG](https://github.com/aistairc/VirtualHome2KG/blob/main/README_ja.md)」を使用して作成されています。  
 詳細はこちらの資料を御覧ください。
 
 ## リファレンス
-- 江上周作，鵜飼孝典，窪田文也，大野美喜子，北村光司，福田賢一郎: 家庭内の事故予防に向けた合成ナレッジグラフの構築と推論，第56回人工知能学会セマンティックウェブとオントロジー研究会, SIG-SWO-056-14 (2022) [[J-STAGE]](https://www.jstage.jst.go.jp/article/jsaisigtwo/2022/SWO-056/2022_14/_article/-char/ja)
+
+- 江上周作，鵜飼孝典，Swe Nwe Nwe Htun，太田雅輝，大野美喜子，北村光司，松下京群，古崎晃司，川村隆浩，福田賢一郎: 家庭内の日常生活動画とイベント中心知識グラフの同時生成，2023 年度人工知能学会全国大会（第 37 回）, to appear (2023)
+- Egami, S., Ugai, T., Oono, M., Kitamura, K., Fukuda.: Synthesizing Event-centric Knowledge Graphs of Daily Activities using Virtual Space. IEEE Access, Early Access. doi: [https://doi.org/10.1109/ACCESS.2023.3253807](https://doi.org/10.1109/ACCESS.2023.3253807) (2023)
+- 江上周作，鵜飼孝典，窪田文也，大野美喜子，北村光司，福田賢一郎: 家庭内の事故予防に向けた合成ナレッジグラフの構築と推論，第 56 回人工知能学会セマンティックウェブとオントロジー研究会, SIG-SWO-056-14 (2022) [[J-STAGE]](https://www.jstage.jst.go.jp/article/jsaisigtwo/2022/SWO-056/2022_14/_article/-char/ja)
 - Egami, S., Nishimura, S., Fukuda, K.: A Framework for Constructing and Augmenting Knowledge Graphs using Virtual Space: Towards Analysis of Daily Activities. Proceedings of the 33rd IEEE International Conference on Tools with Artificial Intelligence. pp.1226-1230 (2021) [[IEEE Xplore]](https://ieeexplore.ieee.org/document/9643400)
 - Egami, S., Nishimura, S., Fukuda, K.: VirtualHome2KG: Constructing and Augmenting Knowledge Graphs of Daily Activities Using Virtual Space. Proceedings of the ISWC 2021 Posters, Demos and Industry Tracks: From Novel Ideas to Industrial Practice, co-located with 20th International Semantic Web Conference. CEUR, Vol.2980 (2021) [[pdf]](http://ceur-ws.org/Vol-2980/paper381.pdf)
 
 ## ライセンス
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="https://profile.idease.info/" property="cc:attributionName" rel="cc:attributionURL">江上周作</a>，他 作『<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">VirtualHome2KGデータセット―家庭内の日常生活行動のシミュレーション動画とナレッジグラフ―</span>』は<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">クリエイティブ・コモンズ 表示 4.0 国際 ライセンス</a>で提供されています。<br /><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/aistairc/VirtualHome2KG" rel="dct:source">https://github.com/aistairc/VirtualHome2KG</a>にある作品に基づいている。
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="https://profile.idease.info/" property="cc:attributionName" rel="cc:attributionURL">江上周作</a>，他 作『<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">VirtualHome2KG データセット―家庭内の日常生活行動のシミュレーション動画とナレッジグラフ―</span>』は<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">クリエイティブ・コモンズ 表示 4.0 国際 ライセンス</a>で提供されています。<br /><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/aistairc/VirtualHome2KG" rel="dct:source">https://github.com/aistairc/VirtualHome2KG</a>にある作品に基づいている。
 
 ## 謝辞
+
 この成果は，国立研究開発法人新エネルギー・産業技術総合開発機構(NEDO)の委託業務(JPNP20006, JPNP180013)の結果得られたものです．
