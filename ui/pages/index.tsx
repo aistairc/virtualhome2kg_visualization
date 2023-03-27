@@ -109,7 +109,7 @@ const Home: NextPage = () => {
           return Number(a.number.value) > Number(b.number.value) ? 1 : -1;
         });
         const ds = result.map((v) => {
-          return Number(v.duration.value) / 1.2686;
+          return Number(v.duration.value);
         });
         const videoUrl = await makeMoviePath(
           activity.activity,

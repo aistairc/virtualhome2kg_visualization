@@ -167,14 +167,19 @@ export const ObjectTable: React.FC<{
 }) => {
   const [filterValues, setFilterValues] = useState<string[]>([filterItems[2]]);
 
+  const _durations = useMemo(() => {
+    return durations.filter((_, index) => index < durations.length - 1);
+  }, [durations]);
+
   const situationNumber = useMemo(() => {
-    for (let i = durations.length - 1; i >= 0; i--) {
+    for (let i = _durations.length - 1; i >= 0; i--) {
       if (currentTime >= durations[i]) {
         return i + 1;
       }
     }
     return 0;
-  }, [currentTime, durations]);
+  }, [currentTime, _durations]);
+  console.log(_durations, situationNumber);
 
   const [showItems, setShowItems] = useState<StateItemType>(DefaultShowItem);
   const [searchText, setSearchText] = useState<string[]>([]);
@@ -192,6 +197,7 @@ export const ObjectTable: React.FC<{
 
   const _rows = useMemo(() => {
     const rows = Object.values(data);
+    console.log(rows);
     if (!rows.length) {
       return [];
     }
@@ -251,7 +257,7 @@ export const ObjectTable: React.FC<{
   }, [data]);
 
   const marks: { label: React.ReactNode; value: number }[] = useMemo(() => {
-    const values = durations.map((val, idx) => {
+    const values = _durations.map((val, idx) => {
       return {
         label: (
           <Mark active={situationNumber === idx + 1}>{`Situation${
@@ -268,7 +274,7 @@ export const ObjectTable: React.FC<{
       },
       ...values,
     ];
-  }, [durations, situationNumber]);
+  }, [_durations, situationNumber]);
 
   // ラベルの位置が被りそうな場合にラベルの位置を縦方向にずらしたい。
   // maxMarginはずらした場合にSliderの高さを調整する必要がある。
@@ -279,7 +285,7 @@ export const ObjectTable: React.FC<{
       const attributes: { [key: string]: SxProps<Theme> } = {};
       let count = 1;
       let maxMargin = 0;
-      for (const d of durations) {
+      for (const d of _durations) {
         // もし、前回との値の差が全体の6%未満だったら
         if ((d - before) / videoDuration < 0.06) {
           const numberOfMargin = (values[values.length - 1] ?? 0) + 1;
@@ -296,7 +302,7 @@ export const ObjectTable: React.FC<{
         count += 1;
       }
       return [attributes, maxMargin + 20];
-    }, [durations, videoDuration]);
+    }, [_durations, videoDuration]);
 
   const onChangeSlider = useCallback(
     (_: Event, val: number | number[]) => {
@@ -394,7 +400,7 @@ export const ObjectTable: React.FC<{
     );
   }, [data, popupInfo, situationNumber]);
 
-  if (!durations.length) {
+  if (!_durations.length) {
     return null;
   }
   if (!Object.values(data).length) {
