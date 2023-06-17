@@ -1,34 +1,23 @@
-# 前提条件
+[[Japanese]](./README_ja.md)
 
-- Linux, 又は Mac で Docker と Docker Compose がインストールされていること
+# VirtualHome2KG Visualization System
 
-# Virtualhome 可視化システム
+## Requirements
 
-# ローカルでの起動方法
+- Linux or Mac with Docker and Docker Compose installed
 
-- https://github.com/aistairc/virtualhome2kg_visualization を clone します。
-- ディレクトリに入り、ブランチを`kgrc4si`にします。
-- `docker compose up --build`を実行します。
-- 結果を http://localhost:8080 で確認することができます。
+## How to start locally
 
-# github pages を使った展開方法
+- Clone https://github.com/aistairc/virtualhome2kg_visualization.
+- Switch to branch `kgrc4si`.
+- Run `docker compose up --build`.
+- You can see the result at http://localhost:8080.
 
-可視化システムは、データの取得に SPARQL Endpoint を必要としています。  
-上記、ローカルでの実行方法では、ローカル上に GraphDB を起動していますが、可視化システムが接続する SPARQL Endpoint をインターネット上に存在するものにする場合は、静的ページとしても展開できます。  
-その場合、SPARQL Endpoint は以下の条件を満たしている必要があります。
-
-- SPARQL Endpoint がレスポンスヘッダーとして Access-Control-Allow-Origin を\*か、可視化システムが存在するドメインを返却すること。
-- HTTPS であること。
-
-当リポジトリでは`kgrc4si`が更新されることによって github Actions が実行されるようになっており、これによって`gh-pages`ブランチに可視化システムが静的ページ用にビルドされたものが push されます。  
-これを設定画面から公開することで github pages として公開することが可能です。
-
-# データ更新方法
-
-当リポジトリはhttps://github.com/KnowledgeGraphJapan/KGRC-RDF の`kgrc4si`をフォーク元として持っており、そのブランチが持っている RDF データ等に変更があった場合に以下の手順で同期することが可能です。
+## How to update data
+This repository is a fork of `kgrc4si` from https://github.com/KnowledgeGraphJapan/KGRC-RDF and can be synchronized with the following procedure when there is a change in the RDF data, etc. owned by that branch.
 
 ```
-git remote add upstream git@github.com:KnowledgeGraphJapan/KGRC-RDF.git # upstream リポジトリを設定
-git fetch upstream # upstream リポジトリを更新
-git merge upstream/kgrc4si # upstream ブランチと同期
+git remote add upstream git@github.com:KnowledgeGraphJapan/KGRC-RDF.git # set upstream repository
+git fetch upstream # update the upstream repository
+git merge upstream/kgrc4si # Sync with upstream branch
 ```
