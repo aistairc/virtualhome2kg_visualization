@@ -1,6 +1,13 @@
 [[Japanese]](./README_ja.md)
 
-# VirtualHome2KG Visualization System
+# VirtualHome2KG Visualization Tool
+
+<table width="100%">
+<tr>
+<td width="50.5%"><img src="./image1.png" alt="table"></td>
+<td width="49.5%"><img src="./image2.png" alt="kg"></td>
+</tr>
+</table>
 
 ## Requirements
 
