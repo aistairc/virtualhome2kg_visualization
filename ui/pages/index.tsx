@@ -211,6 +211,10 @@ const Home: NextPage = () => {
   const onClickKGraph = useCallback(() => {
     setShowMode("graph");
   }, []);
+  
+  const onClick3D = useCallback(() => {
+    console.log("3D");
+  }, []);
 
   const eventNode = useMemo(() => {
     const ct = Math.round(currentTime * 100) / 100;
@@ -388,6 +392,7 @@ const Home: NextPage = () => {
         <Box>
           <Button onClick={onClickTable}>オブジェクト一覧表示</Button>
           <Button onClick={onClickKGraph}>ナレッジグラフ表示</Button>
+          <Button onClick={onClick3D}>3D</Button>
         </Box>
       )}
       {mode === "table" ? (
