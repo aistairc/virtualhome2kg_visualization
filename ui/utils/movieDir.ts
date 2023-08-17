@@ -2,7 +2,7 @@ import axios from "axios";
 import { NamedNode } from "rdf-js";
 import { fetchActivityTypes, PREFIXES } from "./sparql";
 
-const MovieStoreURL = "http://kgrc4si.ml/movies/";
+const MovieStoreURL = "https://kgrc4si.ml/Movie/movies5.0/";
 
 export const makeMoviePath = async (
   activity: NamedNode<string>,
