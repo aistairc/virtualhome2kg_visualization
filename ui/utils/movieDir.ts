@@ -22,7 +22,10 @@ export const makeMoviePath = async (
       ""
     )}/${sceneFilename}`;
     try {
-      await axios.head(url);
+      await axios.head(url, {
+      headers: {
+        'Access-Control-Allow-Origin': 'https://kgrc4si.ml'
+      });
       return url;
     } catch (error) {
       console.log("get", error);
