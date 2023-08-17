@@ -24,7 +24,7 @@ export const makeMoviePath = async (
     try {
       await axios.head(url, {
         headers: {
-          'Access-Control-Allow-Origin': 'https://kgrc4si.ml'
+          'Access-Control-Allow-Origin': 'https://kgrc4si.ml/Movie/movies5.0/'
         }
       });
       return url;
