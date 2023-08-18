@@ -213,9 +213,9 @@ const Home: NextPage = () => {
   }, []);
   
   const onClick3D = (async () => {
-    console.log(activity);
     if (activity){
-      console.log(activity.activity);
+      console.log('>>>>>'+activity.activity.value);
+      //activity.activity.value.replace(PREFIXES.ex, "")
     }
   });
 
