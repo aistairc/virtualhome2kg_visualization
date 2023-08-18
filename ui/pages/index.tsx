@@ -255,6 +255,7 @@ const Home: NextPage = () => {
           id="demo-simple-select"
           label="Videoを選択"
         >
+        <Button onClick={onClick3D}>3D</Button>
           {activityNodes}
         </Select>
       </FormControl>
@@ -392,7 +393,6 @@ const Home: NextPage = () => {
         <Box>
           <Button onClick={onClickTable}>オブジェクト一覧表示</Button>
           <Button onClick={onClickKGraph}>ナレッジグラフ表示</Button>
-          <Button onClick={onClick3D}>3D</Button>
         </Box>
       )}
       {mode === "table" ? (
