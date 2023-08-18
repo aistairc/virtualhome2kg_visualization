@@ -214,11 +214,10 @@ const Home: NextPage = () => {
   
   const onClick3D = (async () => {
     if (activity){
-      console.log('>>>>>'+activity);
-      let htmlName = activity.activity.value.replace(PREFIXES.ex, "")
-      console.log('>>>>>>>>>>>>'+htmlName)
-      //const newTab = window.open('../../3D/'+htmlName+'.html', '_blank');
-      //newTab.focus();
+      console.log(activity);
+      let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
+      const newTab = window.open('../../3D/virtualhome2kg-'+htmlName+'.html', '_blank');
+      newTab.focus();
     }
   });
 
