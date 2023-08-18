@@ -17,6 +17,7 @@ export const makeMoviePath = async (
   )}_0.mp4`;
   console.log(sceneFilename);
   for (const result of results) {
+    console.log(result);
     const url = `${MovieStoreURL}${result.subClassOf.value.replace(
       PREFIXES.ho,
       ""
