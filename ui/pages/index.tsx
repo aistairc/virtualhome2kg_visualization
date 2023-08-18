@@ -213,7 +213,9 @@ const Home: NextPage = () => {
   }, []);
   
   const onClick3D = useCallback(() => {
-    console.log("3D");
+    if (activity){
+      console.log(activity.activity);
+    }
   }, []);
 
   const eventNode = useMemo(() => {
