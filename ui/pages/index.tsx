@@ -247,6 +247,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <FormControl fullWidth>
+        <Button onClick={onClick3D}>3D</Button>
         <InputLabel id="demo-simple-select-label">Videoを選択</InputLabel>
         <Select
           onChange={onChangeActivity}
@@ -255,7 +256,6 @@ const Home: NextPage = () => {
           id="demo-simple-select"
           label="Videoを選択"
         >
-        <Button onClick={onClick3D}>3D</Button>
           {activityNodes}
         </Select>
       </FormControl>
