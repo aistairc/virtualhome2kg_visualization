@@ -216,8 +216,8 @@ const Home: NextPage = () => {
     if (activity){
       console.log(activity);
       let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
-      window.open('../../3D/virtualhome2kg-'+htmlName+'.html', '_blank');
-      //newTab.focus();
+      window.open('D:/dkirt/WorkSpace/viz-kgrc-rdf-bbox-x3dom/3D/virtualhome2kg-'+htmlName+'.html', '_blank')
+      //window.open('../../3D/virtualhome2kg-'+htmlName+'.html', '_blank');
     }
   });
 
