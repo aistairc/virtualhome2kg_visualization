@@ -213,6 +213,7 @@ const Home: NextPage = () => {
   }, []);
   
   const onClick3D = useCallback(() => {
+    console.log(activity);
     if (activity){
       console.log(activity.activity);
     }
