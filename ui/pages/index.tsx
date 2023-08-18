@@ -216,8 +216,8 @@ const Home: NextPage = () => {
     if (activity){
       console.log(activity);
       let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
-      const newTab = window.open('../../../3D/virtualhome2kg-'+htmlName+'.html', '_blank');
-      newTab.focus();
+      window.open('../../3D/virtualhome2kg-'+htmlName+'.html', '_blank');
+      //newTab.focus();
     }
   });
 
