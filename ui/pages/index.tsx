@@ -212,12 +212,12 @@ const Home: NextPage = () => {
     setShowMode("graph");
   }, []);
   
-  const onClick3D = useCallback(() => {
+  const onClick3D = (async () => {
     console.log(activity);
     if (activity){
       console.log(activity.activity);
     }
-  }, []);
+  });
 
   const eventNode = useMemo(() => {
     const ct = Math.round(currentTime * 100) / 100;
