@@ -214,8 +214,11 @@ const Home: NextPage = () => {
   
   const onClick3D = (async () => {
     if (activity){
-      console.log('>>>>>'+activity.activity.value);
-      //activity.activity.value.replace(PREFIXES.ex, "")
+      console.log('>>>>>'+activity);
+      let htmlName = activity.activity.value.replace(PREFIXES.ex, "")
+      console.log('>>>>>>>>>>>>'+htmlName)
+      //const newTab = window.open('../../3D/'+htmlName+'.html', '_blank');
+      //newTab.focus();
     }
   });
 
