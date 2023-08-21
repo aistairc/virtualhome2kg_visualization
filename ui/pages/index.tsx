@@ -218,8 +218,8 @@ const Home: NextPage = () => {
       console.log(x3ds);
       let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
       let htmlPath = '../../3D/virtualhome2kg-'+htmlName+'.html';
-      const htmlFile = await import(htmlPath);
-      console.log(htmlFile);
+      //const htmlFile = await import(htmlPath);
+      //console.log(htmlFile);
       //const htmlContent = await htmlFile.default.text();
       //const newTab = window.open('', '_blank');
       //newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
