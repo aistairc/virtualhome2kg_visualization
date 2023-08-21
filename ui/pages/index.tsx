@@ -219,11 +219,11 @@ const Home: NextPage = () => {
       //let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
       //let htmlPath = '../../3D/virtualhome2kg-'+htmlName+'.html';
       //const htmlFile = await import(htmlPath);
-      const htmlContent = await htmlFile.default.text();
-      const newTab = window.open('', '_blank');
-      newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
-      newTab.document.write(htmlContent);
-      newTab.document.write('</body></html>');
+      //const htmlContent = await htmlFile.default.text();
+      //const newTab = window.open('', '_blank');
+      //newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
+      //newTab.document.write(htmlContent);
+      //newTab.document.write('</body></html>');
       //window.open(htmlFile, '_blank');
     }
   });
