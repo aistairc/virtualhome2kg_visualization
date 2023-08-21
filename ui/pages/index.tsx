@@ -225,7 +225,7 @@ const Home: NextPage = () => {
       //newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
       //newTab.document.write(htmlContent);
       //newTab.document.write('</body></html>');
-      //window.open('../public/3D/virtualhome2kg-'+htmlName+'.html', '_blank');
+      window.open('../components/virtualhome2kg-admire_art1_scene1.html', '_blank');
     }
   });
 
