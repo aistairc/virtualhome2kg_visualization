@@ -216,9 +216,9 @@ const Home: NextPage = () => {
     if (activity){
       console.log(activity);
       let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
-      const response = await import('../public/3D/virtualhome2kg-'+htmlName+'.html');
-      console.log(response);
-      //const htmlContent = await response.default.text();
+      const htmlFile = await import('../../3D/virtualhome2kg-'+htmlName+'.html');
+      console.log(htmlFile);
+      //const htmlContent = await htmlFile.default.text();
       //const newTab = window.open('', '_blank');
       //newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
       //newTab.document.write(htmlContent);
