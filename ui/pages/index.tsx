@@ -216,7 +216,14 @@ const Home: NextPage = () => {
     if (activity){
       console.log(activity);
       let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
-      window.open('../public/3D/virtualhome2kg-'+htmlName+'.html', '_blank');
+      const response = await import('../public/3D/virtualhome2kg-'+htmlName+'.html');
+      console.log(response);
+      const htmlContent = await response.default.text();
+      const newTab = window.open('', '_blank');
+      newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
+      newTab.document.write(htmlContent);
+      newTab.document.write('</body></html>');
+      //window.open('../public/3D/virtualhome2kg-'+htmlName+'.html', '_blank');
     }
   });
 
