@@ -37,7 +37,7 @@ import { yellow } from "@mui/material/colors";
 import { ObjectTable } from "../components/ObjectTable";
 import dynamic from "next/dynamic";
 import { makeMoviePath } from "../utils/movieDir";
-import x3ds from "../../3D/*";
+import x3ds from "../../3D/*.html";
 
 type ActivityListType = {
   type: string;
