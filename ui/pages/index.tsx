@@ -221,12 +221,12 @@ const Home: NextPage = () => {
       let htmlPath = '../../3D/virtualhome2kg-'+htmlName+'.html';
       //const htmlFile = await import(htmlPath);
       //console.log(htmlFile);
-      //const htmlContent = await htmlFile.default.text();
-      //const newTab = window.open('', '_blank');
-      //newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
-      //newTab.document.write(htmlContent);
-      //newTab.document.write('</body></html>');
-      window.open(htmlFile, '_blank');
+      const htmlContent = await htmlFile.default.text();
+      const newTab = window.open('', '_blank');
+      newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
+      newTab.document.write(htmlContent);
+      newTab.document.write('</body></html>');
+      //window.open(htmlFile, '_blank');
     }
   });
 
