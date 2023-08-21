@@ -13,7 +13,6 @@ FROM node:16-alpine AS builder
 ARG NEXT_PUBLIC_SPARQL_ENDPOINT
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY ../3D/ ./3D/
 COPY . .
 
 # Next.js collects completely anonymous telemetry data about general usage.
