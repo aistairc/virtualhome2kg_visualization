@@ -216,7 +216,8 @@ const Home: NextPage = () => {
     if (activity){
       console.log(activity);
       let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
-      const htmlFile = await import('../../3D/virtualhome2kg-'+htmlName+'.html');
+      let htmlPath = '../../3D/virtualhome2kg-'+htmlName+'.html';
+      const htmlFile = await import(htmlPath);
       console.log(htmlFile);
       //const htmlContent = await htmlFile.default.text();
       //const newTab = window.open('', '_blank');
