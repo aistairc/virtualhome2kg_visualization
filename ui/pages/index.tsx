@@ -216,7 +216,7 @@ const Home: NextPage = () => {
     if (activity){
       console.log(activity);
       let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
-      window.open('../3D/virtualhome2kg-'+htmlName+'.html', '_blank');
+      window.open('../public/3D/virtualhome2kg-'+htmlName+'.html', '_blank');
     }
   });
 
