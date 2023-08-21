@@ -37,6 +37,7 @@ import { yellow } from "@mui/material/colors";
 import { ObjectTable } from "../components/ObjectTable";
 import dynamic from "next/dynamic";
 import { makeMoviePath } from "../utils/movieDir";
+import htmlFile from "../components/virtualhome2kg-admire_art1_scene1.html";
 
 type ActivityListType = {
   type: string;
@@ -225,7 +226,7 @@ const Home: NextPage = () => {
       //newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
       //newTab.document.write(htmlContent);
       //newTab.document.write('</body></html>');
-      window.open('../components/virtualhome2kg-admire_art1_scene1.html', '_blank');
+      window.open(htmlFile, '_blank');
     }
   });
 
