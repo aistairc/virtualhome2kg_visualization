@@ -21,7 +21,7 @@ export const makeMoviePath = async (
       PREFIXES.ho,
       ""
     )}/${sceneFilename}`;
-    console.log(url);
+    console.log(url+"<<<<<<<<<<<<<<");
     try {
       await axios.head(url, {
         headers: {
