@@ -37,6 +37,7 @@ import { yellow } from "@mui/material/colors";
 import { ObjectTable } from "../components/ObjectTable";
 import dynamic from "next/dynamic";
 import { makeMoviePath } from "../utils/movieDir";
+import htmlFile from "../components/3D/virtualhome2kg-admire_art1_scene1.html";
 
 type ActivityListType = {
   type: string;
