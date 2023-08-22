@@ -37,7 +37,7 @@ import { yellow } from "@mui/material/colors";
 import { ObjectTable } from "../components/ObjectTable";
 import dynamic from "next/dynamic";
 import { makeMoviePath } from "../utils/movieDir";
-import htmlFile from "../components/3D/virtualhome2kg-admire_art1_scene1.html";
+import htmlFile from "../public/3D/virtualhome2kg-admire_art1_scene1.html";
 
 type ActivityListType = {
   type: string;
@@ -215,8 +215,7 @@ const Home: NextPage = () => {
   
   const onClick3D = (async () => {
     if (activity){
-      console.log(activity);
-      //let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
+      let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
       //let htmlPath = '../../3D/virtualhome2kg-'+htmlName+'.html';
       //const htmlFile = await import(htmlPath);
       //const htmlContent = await htmlFile.default.text();
