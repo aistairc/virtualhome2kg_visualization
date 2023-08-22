@@ -13,7 +13,6 @@ FROM node:16-alpine AS builder
 ARG NEXT_PUBLIC_SPARQL_ENDPOINT
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY ~/vh2kg/virtualhome2kg_visualizaiton/3D/ ./3D/
 COPY . .
 
 # Next.js collects completely anonymous telemetry data about general usage.
@@ -45,6 +44,7 @@ COPY --from=deps /app/node_modules ./node_modules
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY ~/vh2kg/virtualhome2kg_visualizaiton/3D/ ./3D/
 
 
 USER nextjs
