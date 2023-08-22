@@ -116,6 +116,7 @@ const Home: NextPage = () => {
           activity.label.value,
           activity.scene.value
         );
+        console.log(videoUrl+"<<<<<<<<<");
         setVideoUrl(videoUrl);
 
         const durations: number[] = [];
