@@ -216,9 +216,9 @@ const Home: NextPage = () => {
     if (activity){
       let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
       //let htmlPath = '../../3D/virtualhome2kg-'+htmlName+'.html';
-      const htmlFile = await import('../public/3D/virtualhome2kg-admire_art1_scene1.html');
-      const htmlContent = await htmlFile.default.text();
-      console.log(htmlContent);
+      //const htmlFile = await import('../public/3D/virtualhome2kg-admire_art1_scene1.html');
+      //const htmlContent = await htmlFile.default.text();
+      //console.log(htmlContent);
       //const newTab = window.open('', '_blank');
       //newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
       //newTab.document.write(htmlContent);
