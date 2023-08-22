@@ -215,15 +215,16 @@ const Home: NextPage = () => {
   const onClick3D = (async () => {
     if (activity){
       let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
-      //let htmlPath = '../../3D/virtualhome2kg-'+htmlName+'.html';
-      const htmlFile = () => import('../public/3D/virtualhome2kg-admire_art1_scene1.html');
+      console.log(htmlName);
+      //let htmlPath = '../virtualhome2kg-'+htmlName+'.html';
+      //const htmlFile = () => import('../public/3D/virtualhome2kg-admire_art1_scene1.html');
       //const htmlContent = htmlFile.default.text();
       //console.log(htmlContent);
       //const newTab = window.open('', '_blank');
       //newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
       //newTab.document.write(htmlContent);
       //newTab.document.write('</body></html>');
-      //window.open(htmlFile, '_blank');
+      //window.open(htmlPath, '_blank');
     }
   });
 
@@ -258,7 +259,6 @@ const Home: NextPage = () => {
   return (
     <div>
       <FormControl fullWidth>
-        <Button onClick={onClick3D}>3D</Button>
         <InputLabel id="demo-simple-select-label">Videoを選択</InputLabel>
         <Select
           onChange={onChangeActivity}
@@ -404,6 +404,7 @@ const Home: NextPage = () => {
         <Box>
           <Button onClick={onClickTable}>オブジェクト一覧表示</Button>
           <Button onClick={onClickKGraph}>ナレッジグラフ表示</Button>
+          <Button onClick={onClick3D}>3D</Button>
         </Box>
       )}
       {mode === "table" ? (
