@@ -260,7 +260,6 @@ const Home: NextPage = () => {
   return (
     <div>
       <FormControl fullWidth>
-        <Button onClick={onClick3D}>3D</Button>
         <InputLabel id="demo-simple-select-label">Videoを選択</InputLabel>
         <Select
           onChange={onChangeActivity}
@@ -406,6 +405,7 @@ const Home: NextPage = () => {
         <Box>
           <Button onClick={onClickTable}>オブジェクト一覧表示</Button>
           <Button onClick={onClickKGraph}>ナレッジグラフ表示</Button>
+          <Button onClick={onClick3D}>3D</Button>
         </Box>
       )}
       {mode === "table" ? (
