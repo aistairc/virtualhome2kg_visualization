@@ -2,7 +2,7 @@ import axios from "axios";
 import { NamedNode } from "rdf-js";
 import { fetchActivityTypes, PREFIXES } from "./sparql";
 
-const MovieStoreURL = "https://kgrc4si.ml/Movie/movies5.0/";
+const MovieStoreURL = "https://kgrc4si.home.kg/Movie/movies5.0/";
 
 export const makeMoviePath = async (
   activity: NamedNode<string>,
@@ -24,7 +24,7 @@ export const makeMoviePath = async (
     try {
       await axios.head(url, {
         headers: {
-          'Access-Control-Allow-Origin': 'https://kgrc4si.ml'
+          'Access-Control-Allow-Origin': 'https://kgrc4si.home.kg/'
         }
       });
       return url;
