@@ -217,7 +217,7 @@ const Home: NextPage = () => {
     if (activity){
       let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
       console.log(htmlName);
-      //let htmlPath = '../virtualhome2kg-'+htmlName+'.html';
+      let htmlPath = 'https://aistairc.github.io/virtualhome2kg_visualization/3D/virtualhome2kg-admire_art1_scene1.html';
       //const htmlFile = () => import('../public/3D/virtualhome2kg-admire_art1_scene1.html');
       //const htmlContent = htmlFile.default.text();
       //console.log(htmlContent);
@@ -225,7 +225,7 @@ const Home: NextPage = () => {
       //newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
       //newTab.document.write(htmlContent);
       //newTab.document.write('</body></html>');
-      //window.open(htmlPath, '_blank');
+      window.open(htmlPath, '_blank');
     }
   });
 
