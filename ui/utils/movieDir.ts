@@ -11,7 +11,7 @@ export const makeMoviePath = async (
 ): Promise<string | null> => {
   const results = await fetchActivityTypes(activity);
   console.log(activity);
-  const sceneFilename = `${scene.replace(PREFIXES.ex, "")}/${label.replace(
+  const sceneFilename = `${scene.replace(PREFIXES.ex, "")}/movies/${label.replace(
     " ",
     "%20"
   )}_0.mp4`;
@@ -24,7 +24,7 @@ export const makeMoviePath = async (
     try {
       await axios.head(url, {
         headers: {
-          'Access-Control-Allow-Origin': 'https://kgrc4si.home.kg/'
+          'Access-Control-Allow-Origin': '*'
         }
       });
       return url;
