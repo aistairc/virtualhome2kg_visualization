@@ -12,17 +12,17 @@ export type ActivityQueryType = {
 const makeClient = () => {
   const endpointUrl =
     process.env.NEXT_PUBLIC_SPARQL_ENDPOINT ??
-    "https://kgrc4si.ml/graph/repositories/KGRC4SIv03";
+    "https://kgrc4si.home.kg/graph/repositories/KGRC4SIv05";
   return new ParsingClient({
     endpointUrl: `${endpointUrl}?infer=false`,
   });
 };
 
 export const PREFIXES = {
-  ["vh2kg-action"]: "http://example.org/virtualhome2kg/ontology/action/",
-  hra: "http://example.org/virtualhome2kg/ontology/homeriskactivity/",
-  vh2kg: "http://example.org/virtualhome2kg/ontology/",
-  ex: "http://example.org/virtualhome2kg/instance/",
+  ["vh2kg-action"]: "http://kgrc4si.home.kg/virtualhome2kg/ontology/action/",
+  hra: "http://kgrc4si.home.kg/virtualhome2kg/ontology/homeriskactivity/",
+  vh2kg: "http://kgrc4si.home.kg/virtualhome2kg/ontology/",
+  ex: "http://kgrc4si.home.kg/virtualhome2kg/instance/",
   rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
   time: "http://www.w3.org/2006/time#",
   rdfs: "http://www.w3.org/2000/01/rdf-schema#",
@@ -39,7 +39,7 @@ export const PREFIXES = {
 const activityQuery = `
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX ho: <http://www.owl-ontologies.com/VirtualHome.owl#>
-PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+PREFIX vh2kg: <http://kgrc4si.home.kg/virtualhome2kg/ontology/>
 
 select DISTINCT * where {
     ?activity vh2kg:virtualHome ?scene .
@@ -93,14 +93,14 @@ export const fetchEvent: (
   scene: NamedNode
 ) => Promise<EventQueryType[]> = async (sceneUri) => {
   const eventQuery = `
-  PREFIX ex: <http://example.org/virtualhome2kg/instance/>
+  PREFIX ex: <http://kgrc4si.home.kg/virtualhome2kg/instance/>
   prefix ho: <http://www.owl-ontologies.com/VirtualHome.owl#>
   prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
   prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-  PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+  PREFIX vh2kg: <http://kgrc4si.home.kg/virtualhome2kg/ontology/>
   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
   PREFIX time: <http://www.w3.org/2006/time#>
-  PREFIX hra: <http://example.org/virtualhome2kg/ontology/homeriskactivity/>
+  PREFIX hra: <http://kgrc4si.home.kg/virtualhome2kg/ontology/homeriskactivity/>
   select distinct ?event ?number ?action ?duration ?mainObject ?mainObjectLabel ?targetObject ?targetObjectLabel where { 
     <${sceneUri.value}> vh2kg:hasEvent ?event .
     ?event vh2kg:time ?time .
@@ -170,8 +170,8 @@ export const fetchState = async (
 ): Promise<{ [key: string]: StateObject[] }> => {
   const situationQuery = `
   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-  PREFIX ex: <http://example.org/virtualhome2kg/instance/>
-  PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+  PREFIX ex: <http://kgrc4si.home.kg/virtualhome2kg/instance/>
+  PREFIX vh2kg: <http://kgrc4si.home.kg/virtualhome2kg/ontology/>
   PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
 
   select distinct ?situation where { 
@@ -198,8 +198,8 @@ export const fetchState = async (
   for (const situation of situationsResult) {
     const objectsQuery = `
       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-      PREFIX ex: <http://example.org/virtualhome2kg/instance/>
-      PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+      PREFIX ex: <http://kgrc4si.home.kg/virtualhome2kg/instance/>
+      PREFIX vh2kg: <http://kgrc4si.home.kg/virtualhome2kg/ontology/>
       PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
       
       select distinct ?s ?object ?center1 ?center2 ?center3 ?size1 ?size2 ?size3 where { 
@@ -254,8 +254,8 @@ export const fetchState = async (
     {
       const stateQuery = `
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        PREFIX ex: <http://example.org/virtualhome2kg/instance/>
-        PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+        PREFIX ex: <http://kgrc4si.home.kg/virtualhome2kg/instance/>
+        PREFIX vh2kg: <http://kgrc4si.home.kg/virtualhome2kg/ontology/>
         PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
         
         select distinct ?s ?object ?target where { 
@@ -278,8 +278,8 @@ export const fetchState = async (
     {
       const facingQuery = `
       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-      PREFIX ex: <http://example.org/virtualhome2kg/instance/>
-      PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+      PREFIX ex: <http://kgrc4si.home.kg/virtualhome2kg/instance/>
+      PREFIX vh2kg: <http://kgrc4si.home.kg/virtualhome2kg/ontology/>
       PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
       
       select distinct ?s ?object ?target where { 
@@ -305,8 +305,8 @@ export const fetchState = async (
     {
       const insideQuery = `
       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-      PREFIX ex: <http://example.org/virtualhome2kg/instance/>
-      PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+      PREFIX ex: <http://kgrc4si.home.kg/virtualhome2kg/instance/>
+      PREFIX vh2kg: <http://kgrc4si.home.kg/virtualhome2kg/ontology/>
       PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
       
       select distinct ?s ?object ?target where { 
@@ -333,8 +333,8 @@ export const fetchState = async (
     {
       const onQuery = `
       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-      PREFIX ex: <http://example.org/virtualhome2kg/instance/>
-      PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+      PREFIX ex: <http://kgrc4si.home.kg/virtualhome2kg/instance/>
+      PREFIX vh2kg: <http://kgrc4si.home.kg/virtualhome2kg/ontology/>
       PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
       
       select distinct ?s ?object ?target where { 
@@ -361,8 +361,8 @@ export const fetchState = async (
     {
       const betweenQuery = `
       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-      PREFIX ex: <http://example.org/virtualhome2kg/instance/>
-      PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+      PREFIX ex: <http://kgrc4si.home.kg/virtualhome2kg/instance/>
+      PREFIX vh2kg: <http://kgrc4si.home.kg/virtualhome2kg/ontology/>
       PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
       
       select distinct ?s ?object ?target where { 
@@ -389,8 +389,8 @@ export const fetchState = async (
     {
       const holdLhQuery = `
       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-      PREFIX ex: <http://example.org/virtualhome2kg/instance/>
-      PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+      PREFIX ex: <http://kgrc4si.home.kg/virtualhome2kg/instance/>
+      PREFIX vh2kg: <http://kgrc4si.home.kg/virtualhome2kg/ontology/>
       PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
       
       select distinct ?s ?object ?target where { 
@@ -417,8 +417,8 @@ export const fetchState = async (
     {
       const holdRhQuery = `
       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-      PREFIX ex: <http://example.org/virtualhome2kg/instance/>
-      PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+      PREFIX ex: <http://kgrc4si.home.kg/virtualhome2kg/instance/>
+      PREFIX vh2kg: <http://kgrc4si.home.kg/virtualhome2kg/ontology/>
       PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
       
       select distinct ?s ?object ?target where { 
@@ -445,8 +445,8 @@ export const fetchState = async (
     {
       const closeQuery = `
       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-      PREFIX ex: <http://example.org/virtualhome2kg/instance/>
-      PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+      PREFIX ex: <http://kgrc4si.home.kg/virtualhome2kg/instance/>
+      PREFIX vh2kg: <http://kgrc4si.home.kg/virtualhome2kg/ontology/>
       PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
       
       select distinct ?s ?object ?target where { 
