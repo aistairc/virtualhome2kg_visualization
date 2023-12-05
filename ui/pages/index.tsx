@@ -116,6 +116,7 @@ const Home: NextPage = () => {
           activity.label.value,
           activity.scene.value
         );
+        console.log(videoUrl+"<<<<<<<<<");
         setVideoUrl(videoUrl);
 
         const durations: number[] = [];
@@ -211,6 +212,22 @@ const Home: NextPage = () => {
   const onClickKGraph = useCallback(() => {
     setShowMode("graph");
   }, []);
+  
+  const onClick3D = (async () => {
+    if (activity){
+      let htmlName = activity.activity.value.replace(PREFIXES.ex, "");
+      console.log(htmlName);
+      let htmlPath = 'https://aistairc.github.io/virtualhome2kg_visualization/3D/virtualhome2kg-admire_art1_scene1.html';
+      //const htmlFile = () => import('../public/3D/virtualhome2kg-admire_art1_scene1.html');
+      //const htmlContent = htmlFile.default.text();
+      //console.log(htmlContent);
+      //const newTab = window.open('', '_blank');
+      //newTab.document.write('<!DOCTYPE html><html><head><title>Dynamic HTML</title></head><body>');
+      //newTab.document.write(htmlContent);
+      //newTab.document.write('</body></html>');
+      window.open(htmlPath, '_blank');
+    }
+  });
 
   const eventNode = useMemo(() => {
     const ct = Math.round(currentTime * 100) / 100;
@@ -388,6 +405,7 @@ const Home: NextPage = () => {
         <Box>
           <Button onClick={onClickTable}>オブジェクト一覧表示</Button>
           <Button onClick={onClickKGraph}>ナレッジグラフ表示</Button>
+          <Button onClick={onClick3D}>3D</Button>
         </Box>
       )}
       {mode === "table" ? (
