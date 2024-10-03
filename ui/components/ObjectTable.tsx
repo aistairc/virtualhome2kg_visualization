@@ -59,10 +59,10 @@ const Mark: React.FC<{ children: React.ReactNode; active: boolean }> = ({
 };
 
 const filterItems = [
-  "キャラクター",
-  "ターゲット",
-  "変化のあるオブジェクト",
-  "全てのオブジェクト",
+  "Character",
+  "Target",
+  "Dynamic Objects",
+  "All Objects",
 ];
 
 const diffScoreToColor = (score: number) => {
@@ -437,14 +437,14 @@ export const ObjectTable: React.FC<{
         onChange={onChangeSlider}
       />
       <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="show-item-select-label">表示する項目</InputLabel>
+        <InputLabel id="show-item-select-label">Items to display</InputLabel>
         <Select
           value={Object.entries(showItems)
             .filter(([_key, val]) => val)
             .map(([key]) => key)}
           labelId="show-item-select-label"
           id="show-item-select"
-          input={<OutlinedInput label="表示する項目" />}
+          input={<OutlinedInput label="Items to display" />}
           onChange={onChangeShowItem}
           multiple
         >
@@ -458,12 +458,12 @@ export const ObjectTable: React.FC<{
         </Select>
       </FormControl>
       <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="filter-select-label">表示するオブジェクト</InputLabel>
+        <InputLabel id="filter-select-label">Objects to display</InputLabel>
         <Select
           value={filterValues}
           labelId="filter-select-label"
           id="filter-select"
-          input={<OutlinedInput label="表示するオブジェクト" />}
+          input={<OutlinedInput label="Objects to display" />}
           onChange={onChangeFilter}
           multiple
         >
@@ -494,7 +494,7 @@ export const ObjectTable: React.FC<{
           <TableHead>
             <TableRow>
               <TableCell>No.</TableCell>
-              <TableCell>オブジェクトURI</TableCell>
+              <TableCell>Object URI</TableCell>
               {showItems.state && <TableCell>state</TableCell>}
               {showItems.close && <TableCell>close</TableCell>}
               {showItems.facing && <TableCell>facing</TableCell>}

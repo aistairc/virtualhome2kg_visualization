@@ -260,13 +260,13 @@ const Home: NextPage = () => {
   return (
     <div>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Videoを選択</InputLabel>
+        <InputLabel id="demo-simple-select-label">Video</InputLabel>
         <Select
           onChange={onChangeActivity}
           value={activity?.activity.value ?? ""}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          label="Videoを選択"
+          label="Video"
         >
           {activityNodes}
         </Select>
@@ -403,8 +403,8 @@ const Home: NextPage = () => {
       </Box>
       {videoUrl && (
         <Box>
-          <Button onClick={onClickTable}>オブジェクト一覧表示</Button>
-          <Button onClick={onClickKGraph}>ナレッジグラフ表示</Button>
+          <Button onClick={onClickTable}>Object List</Button>
+          <Button onClick={onClickKGraph}>Knowledge Graph</Button>
           <Button onClick={onClick3D}>3D</Button>
         </Box>
       )}
